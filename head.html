@@ -1,0 +1,26 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }}{% elsif paginator.page == 1 %}{{ site.title }} | Home Page {% elsif paginator.page == 2 %}{{ site.title }} | Recent Post Page {% else %}{{ site.title }} | Archive Page {{ paginator.page | minus:2 }}{% endif %}</title>
+  <meta name="description" content="{% if page.description %}{{ page.description | truncate: 160 | strip_html }}{% elsif page.social_share_description  %}{{ page.social_share_description | truncate: 160 | strip_html }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% elsif paginator.page == 1 %}{{ site.description }} | Home Page {% elsif paginator.page == 2 %}{{ site.description }} | Recent Post Page {% else %}{{ site.description }} | Archive Page {{ paginator.page | minus:2 }}{% endif %}">
+  <meta name="twitter:card" content="{% if page.image %}summary_large_image{% else %}summary{% endif %}">
+  <meta name="twitter:site" content="{{ site.twitter_username }}">
+  <meta name="twitter:creator" content="{% if page.twitter_author %}{{ page.twitter_author }}{% else %}{{ site.twitter_username }}{% endif %}">
+  <meta name="twitter:title" content="{{ page.title | truncate: 27 }}">
+  <meta name="twitter:description" content="{% if page.social_share_description %}{{ page.social_share_description | truncate: 160 | strip_html }}{% else %}{{ page.excerpt | truncate: 110 | strip_html }}{% endif %}">
+  {% if page.image %}<meta name="twitter:image" content="http://grassrootsblog.org/img/{{ page.image }}">{% endif %}
+  <meta property="og:title" content="{{ page.title }}" />
+  <meta property="og:site_name" content="{{ site.title }}"/>
+  <meta property="og:url" content="{{ page.url }}" />
+  <meta property="og:description" content="{% if page.social_share_description %}{{ page.social_share_description | truncatewords: 50 | strip_html }}{% else %}{{ page.excerpt | truncatewords: 50 | strip_html }} {% endif %}" />
+  {% if page.image %}<meta property="og:image" content="http://grassrootsblog.org/img/{{ page.image }}" />{% endif %}
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="article:author" content="{{ page.URL_author }}" />
+  <meta property="article:publisher" content="{{ site.url }}" />
+  {% if page.Facebook_ID %}<meta property="fb:app_id" content="{{ page.Facebook_ID }}" />{% endif %}
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+  <meta itemprop="url" content="{{ page.url }}">
+</head>
