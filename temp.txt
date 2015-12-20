@@ -24,5 +24,6 @@ social_share_description: # optional for Twitter and Facebook
 
 #================ Extra ================================
 permalink:
+disqus_user: # Requird for Comments enter your username to conect to disqus 
 comments:  # Turns on Disqus Comment section / ON: True OFF: False
 ---
