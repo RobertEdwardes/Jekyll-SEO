@@ -1,32 +1,46 @@
 ---
 layout: default
 ---
-<div itemscope itemtype="http://schema.org/NewsArticle" class="post">
+<div itemscope itemtype="http://schema.org/NewsArticle" class="post" itemprop="name" content="{{ site.title }}">
+   <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+    <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+      <meta itemprop="url" content="{{ site.url }}/img/{{ site.logo }}">
+      <meta itemprop="width" content="62">
+      <meta itemprop="height" content="60">
+    </div>
+    <meta itemprop="name" content="{{ site.title }}">
+  </div>
+  <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="https://grassrootsblog/{{ post.permalink }}"/>
+  <div class="post-header">
 
-  <header class="post-header">
+        <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
 
-      <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
-
-      {% if page.subTitle %}<h4 itemprop="alternativeHeadline">{{ page.subTitle %}}</h4>{% endif %}
+        {% if page.subTitle %}<h4 itemprop="alternativeHeadline">{{ page.subTitle %}}</h4>{% endif %}
 
 
-    <p class="post-meta"><span itemprop="datePublished" content="{% if page.ISO_8601_date %}{{ page.ISO_8601_date }}{% else %}{{ page.date | xmlschema }}{% endif %}">{{ page.date | date: "%b %-d, %Y" }}</span>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+      <p class="post-meta"><span>{{ page.date | date: "%b %-d, %Y" }}</span>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+      <meta itemprop="datePublished" content="{% if page.ISO_8601_date %}{{ page.ISO_8601_date }}{% else %}{{ page.date | xmlschema }}{% endif %}" />
+  </div>
+  <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+     {% if page.image %}<img class="feat-img is-hidden-mobile" src="/img/{{ page.image }}" alt="{{ page.ImageAlt }}">{% endif %}
+     <meta itemprop="url" content="https:/{{ site.url }}/img/{{ page.image }}">
+     <meta itemprop="width" content="800">
+     <meta itemprop="height" content="600">
+  </div>
+    <hr/>
 
-  </header>
+    {% if page.post_description %}<h6 class="is-hidden-mobile" itemprop="description">{{ page.post_description %}}</h6>{% else %}<h6 class="is-hidden-mobile" itemprop="description">{{ page.excerpt | truncate: 25 %}}</h6>{% endif %}
 
-  {% if page.image %}<img class="feat-img is-hidden-mobile" itemprop="image" src="/img/{{ page.image }}" alt="{{ page.ImageAlt }}">{% endif %}
+    <hr/>
 
-  <hr/>
+    <article class="post-content" itemprop="articleBody">
+      {{ content }}
+    </article>
 
-  {% if page.post_description %}<h6 class="is-hidden-mobile" itemprop="description">{{ page.post_description %}}</h6>{% endif %}
+      <!-- Twitter Tweet Button -->
+      <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="{{ site.twitter_username }}" data-size="large">Tweet</a>
 
-  <hr/>
-
-  <article class="post-content" itemprop="articleBody">
-    {{ content }}
-  </article>
-
-    <!-- Comment Section -->
-  {% include disqus.html disqus_identifier=page.disqus_identifier %}
+      <!-- Comment Section -->
+    {% include disqus.html disqus_identifier=page.disqus_identifier %}
 
 </div>
