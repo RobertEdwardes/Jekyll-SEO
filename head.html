@@ -1,26 +1,37 @@
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+  <meta name="myblogu-verification" content="NjU2ODQyZmMxOWRhMmNhMGIxZjliMDk2NTAwMzE2MzA=" />
+  <meta name="msvalidate.01" content="3662A23539186B68E0666B8939D48090" />
   <title>{% if page.title %}{{ page.title }}{% elsif paginator.page == 1 %}{{ site.title }} | Home Page {% elsif paginator.page == 2 %}{{ site.title }} | Recent Post Page {% else %}{{ site.title }} | Archive Page {{ paginator.page | minus:2 }}{% endif %}</title>
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <meta name="description" content="{% if page.description %}{{ page.description | truncate: 160 | strip_html }}{% elsif page.social_share_description  %}{{ page.social_share_description | truncate: 160 | strip_html }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% elsif paginator.page == 1 %}{{ site.description }} | Home Page {% elsif paginator.page == 2 %}{{ site.description }} | Recent Post Page {% else %}{{ site.description }} | Archive Page {{ paginator.page | minus:2 }}{% endif %}">
   <meta name="twitter:card" content="{% if page.image %}summary_large_image{% else %}summary{% endif %}">
   <meta name="twitter:site" content="{{ site.twitter_username }}">
   <meta name="twitter:creator" content="{% if page.twitter_author %}{{ page.twitter_author }}{% else %}{{ site.twitter_username }}{% endif %}">
   <meta name="twitter:title" content="{{ page.title | truncate: 27 }}">
   <meta name="twitter:description" content="{% if page.social_share_description %}{{ page.social_share_description | truncate: 160 | strip_html }}{% else %}{{ page.excerpt | truncate: 110 | strip_html }}{% endif %}">
-  {% if page.image %}<meta name="twitter:image" content="http://grassrootsblog.org/img/{{ page.image }}">{% endif %}
+  {% if page.image %}<meta name="twitter:image" content="{{ site.url }}/img/{{ page.image }}">{% endif %}
   <meta property="og:title" content="{{ page.title }}" />
   <meta property="og:site_name" content="{{ site.title }}"/>
-  <meta property="og:url" content="{{ page.url }}" />
+  <meta property="og:url" content="{{ page.url | prepend: site.url }}" />
   <meta property="og:description" content="{% if page.social_share_description %}{{ page.social_share_description | truncatewords: 50 | strip_html }}{% else %}{{ page.excerpt | truncatewords: 50 | strip_html }} {% endif %}" />
-  {% if page.image %}<meta property="og:image" content="http://grassrootsblog.org/img/{{ page.image }}" />{% endif %}
+  {% if page.image %}<meta property="og:image" content="{{ site.url }}/img/{{ page.image }}" />{% endif %}
   <meta property="og:type" content="article" />
   <meta property="og:locale" content="en_US" />
   <meta property="article:author" content="{{ page.URL_author }}" />
   <meta property="article:publisher" content="{{ site.url }}" />
-  {% if page.Facebook_ID %}<meta property="fb:app_id" content="{{ page.Facebook_ID }}" />{% endif %}
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  {% if site.Facebook_ID %}<meta property="fb:app_id" content="{{site.Facebook_ID}}" />
+  <meta property="fb:admins" content="{{site.Facebook_adimins}}" />{% endif %}
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
-  <meta itemprop="url" content="{{ page.url }}">
+  <meta itemprop="url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script>window.html5 || document.write('<script src="js/html5shiv.js"><\/script>')</script>
+  <![endif]-->
 </head>
