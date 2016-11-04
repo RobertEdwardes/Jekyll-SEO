@@ -19,8 +19,8 @@ layout: default
 
 
       <p class="post-meta"><span>{{ page.date | date: "%b %-d, %Y" }}</span>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-      <meta itemprop="datePublished" content="{% if page.ISO_8601_date %}{{ page.ISO_8601_date }}{% else %}{{ page.date | xmlschema }}{% endif %}" />
-      <meta itemprop="dateModified" content="{{ xmlschema }}" />
+      <meta itemprop="datePublished" content="{% if page.ISO_8601_date %}{{ page.ISO_8601_date }}{% endif %}" />
+      <meta itemprop="dateModified" content="{{ page.date |  date_to_xmlschema }}" />
   </div>
   <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
      {% if page.image %}<img class="feat-img is-hidden-mobile" src="/blog/img/{{ page.image }}" alt="{{ page.ImageAlt }}">{% endif %}

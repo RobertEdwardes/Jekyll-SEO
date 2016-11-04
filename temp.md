@@ -11,7 +11,7 @@ Facebook_ID:  # Turns on Facebook Open Graph meta data  / ON: {Your Facebook Pag
 image:  # required for Google Snippet and Twitter Image Card
 ImageAlt: # required for Google Snippet
 image-snippet: #must be height: 600px width: 800px
-ISO_8601_date: # required for Google Snippet and Schema.org / fallback is in place if you leave it out
+ISO_8601_date: # required for Google Snippet and Schema.org / will auto update for modify 
 
 #================ Author ================================
 author: #  Name of author of article / Show at top of post
