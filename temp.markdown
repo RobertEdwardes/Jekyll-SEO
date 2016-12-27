@@ -10,8 +10,8 @@ Facebook_ID:  # Turns on Facebook Open Graph meta data  / ON: {Your Facebook Pag
 #================ Main Image ================================
 image:  # required for Google Snippet and Twitter Image Card
 ImageAlt: # required for Google Snippet
-image-snippet: #must be height: 600px width: 800px
-ISO_8601_date: # required for Google Snippet and Schema.org / will auto update for modify 
+ISO_8601_date: # required for Google Snippet and Schema.org / fallback is in place if you leave it out
+image-snippet: # 800px by 600px only
 
 #================ Author ================================
 author: #  Name of author of article / Show at top of post
@@ -19,12 +19,11 @@ twitter_author: #  @USERNAME without @ / Need for Twitter Card
 URL_author: #  Personal Page for Author / Need for Schema.org and Facebook
 
 #================ Optional =============================
-subTitle: # optional for Google Snippet and Schema.org
-post_description: # optional for Google Snippet and Schema.org / Needed if there is no Content
+subTitle: # optional for Google Snippet and Schema.org  
+post_description: # optional for Google Snippet and Schema.org / Needed if there is no Content  
 social_share_description: # optional for Twitter and Facebook
 
 #================ Extra ================================
 permalink:
-disqus_user: # Requird for Comments enter your username to conect to disqus
 comments:  # Turns on Disqus Comment section / ON: True OFF: False
 ---

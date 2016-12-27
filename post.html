@@ -24,9 +24,9 @@ layout: default
   </div>
   <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
      {% if page.image %}<img class="feat-img is-hidden-mobile" src="/blog/img/{{ page.image }}" alt="{{ page.ImageAlt }}">{% endif %}
-     <meta itemprop="url" content="https:/{{ site.url }}/blog/img/{{ page.image-snippet }}">
+     {% if page.image-snippet %}<meta itemprop="url" content="https:/{{ site.url }}/blog/img/{{ page.image-snippet }}">
      <meta itemprop="width" content="800">
-     <meta itemprop="height" content="600">
+     <meta itemprop="height" content="600">{% endif %}
   </div>
     <hr/>
 
