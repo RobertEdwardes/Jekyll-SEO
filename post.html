@@ -28,11 +28,12 @@ layout: default
      <meta itemprop="width" content="800">
      <meta itemprop="height" content="600">{% endif %}
   </div>
-    <hr/>
+    {% if page.image %}<hr/>{% elsif page.subTitle %}<hr/>{% endif %}
 
-    {% if page.post_description %}<h6 class="is-hidden-mobile" itemprop="description">{{ page.post_description %}}</h6>{% endif %}
 
-    <hr/>
+    {% if page.post_description %}<h6 class="is-hidden-mobile" itemprop="description">{{ page.post_description %}}</h6>
+
+    <hr/>{% endif %}
 
     <article class="post-content" itemprop="text">
       {{ content }}
