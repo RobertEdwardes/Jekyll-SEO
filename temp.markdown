@@ -10,7 +10,6 @@ Facebook_ID:  # Turns on Facebook Open Graph meta data  / ON: {Your Facebook Pag
 #================ Main Image ================================
 image:  # required for Google Snippet and Twitter Image Card
 ImageAlt: # required for Google Snippet
-ISO_8601_date: # required for Google Snippet and Schema.org / fallback is in place if you leave it out
 image-snippet: # 800px by 600px only
 
 #================ Author ================================
